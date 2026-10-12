@@ -1,0 +1,66 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+@charset "utf-8";
+
+/* Built-in Sass modules you’ll likely use across partials */
+@use "sass:math";
+@use "sass:string";
+
+/* Configure your design tokens BEFORE loading any of your partials. */
+@use "variables" with (
+  $max-content-width: {{ site.max_width | default:  "930px" }}
+);
+
+/* Your project partials */
+@use "themes";
+@use "layout";
+
+// Core styles organized by usage
+@use "typography";
+@use "navbar";
+@use "footer";
+@use "blog";
+@use "publications";
+@use "components";
+@use "utilities";
+
+// Other specialized styles
+@use "tabs";
+@use "teachings";
+@use "typograms";
+
+/* ── Site customizations (owner-approved, 2026-10-12) ─────────────────── */
+
+/* Maple Mono, self-hosted latin subset */
+@font-face {
+  font-family: "Maple Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/maple-mono-latin-400.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Maple Mono";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../fonts/maple-mono-latin-600.woff2") format("woff2");
+}
+
+$site-font: "Maple Mono", ui-monospace, "SF Mono", monospace;
+
+body {
+  font-family: $site-font !important;
+  padding-top: 1.25rem !important; /* single-page site: navbar hidden */
+}
+
+h1, h2, h3, h4, h5, h6,
+.post-title,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: $site-font !important;
+}
+
+nav.navbar {
+  display: none !important;
+}

@@ -1,0 +1,3 @@
+# social links shown on the about page; defined order = display order
+# only listed keys render; jekyll-socials 0.0.7 key names (e.g. linkedin_username)
+linkedin_username: haoze-li-5079662b6
